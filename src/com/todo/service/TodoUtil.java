@@ -113,7 +113,7 @@ public class TodoUtil {
 		for (TodoItem item : l.getList()) {
 			num++;
 			System.out.print(num + ". ");
-			System.out.println("[" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " (" + item.getDue_date() + ") " + item.getCurrent_date());
+			System.out.println("[" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - (" + item.getDue_date() + ") - " + item.getCurrent_date());
 		}
 	}
 	 
