@@ -42,15 +42,13 @@ public class TodoUtil {
 	public static void deleteItem(TodoList l) {
 		
 		Scanner sc = new Scanner(System.in);
-		int n = 0;
 		
 		System.out.print("<항목 삭제>\n" + "삭제할 항목의 번호 : ");
 		int num = sc.nextInt();
 		
 		for (TodoItem item : l.getList()) {
-			n++;
-			if (num == n) {
-				System.out.println(n + ". [" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - " + item.getDue_date() + " - " + item.getCurrent_date());
+			if (num-1 == l.indexOf(item)) {
+				System.out.println(num + ". [" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - " + item.getDue_date() + " - " + item.getCurrent_date());
 				System.out.print("위 항목을 삭제하시겠습니까? (y/n) ");
 				char answer = sc.next().charAt(0);
 				if(answer == 'y') {
@@ -68,7 +66,6 @@ public class TodoUtil {
 	public static void updateItem(TodoList l) {
 		
 		Scanner sc = new Scanner(System.in);
-		int n = 0;
 		
 		System.out.print("<항목 수정>\n" + "수정할 항목의 번호 : ");
 		int num = sc.nextInt();
@@ -94,28 +91,28 @@ public class TodoUtil {
 		String new_due_date = sc.nextLine().trim();
 		
 		for (TodoItem item : l.getList()) {
-			n++;
-			if (n == num) {
+			if (num-1 == l.indexOf(item)) {
 				l.deleteItem(item);
 				TodoItem t = new TodoItem(new_title, new_description, new_category, new_due_date);
 				l.addItem(t);
 				System.out.println("수정되었습니다");
+				break;
 			}
 		}
 
 	}
 	
 	public static void find(TodoList l, String s) {
-		int n = 0,count = 0;
+		int num,count = 0;
 		String tit, des;
 		
 		for (TodoItem item : l.getList()) {
-			n++;
+			num = l.indexOf(item) + 1;
 			tit = item.getTitle();
 			des = item.getDesc();
 			if(tit.contains(s) || des.contains(s)) {
 				count++;
-				System.out.print(n + ". ");
+				System.out.print(num + ". ");
 				System.out.println("[" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - (" + item.getDue_date() + ") - " + item.getCurrent_date());
 			}	
 		}
@@ -132,7 +129,7 @@ public class TodoUtil {
 		System.out.println("[총 " + i + "개의 목록]");
 	
 		for (TodoItem item : l.getList()) {
-			num++;
+			num = l.indexOf(item) + 1;
 			System.out.print(num + ". ");
 			System.out.println("[" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - (" + item.getDue_date() + ") - " + item.getCurrent_date());
 		}
