@@ -62,8 +62,16 @@ public class TodoItem {
 		this.due_date = due_date;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public String toSaveString() {
 		return category + "##" + title + "##" + desc + "##" + due_date + "##" +current_date + "\n";
 	}
-    
+   
 }

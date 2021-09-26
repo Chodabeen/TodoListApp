@@ -59,7 +59,11 @@ public class TodoMain {
 				break;
 				
 			case "ls_date_desc":
-				
+				l.sortByDate();
+				l.reverseList();
+				System.out.println("날짜역순으로 정렬했습니다");
+				isList = true;
+				break;
 				
 			case "find":
 				String s = sc.next();
