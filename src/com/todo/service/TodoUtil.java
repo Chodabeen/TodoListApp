@@ -51,7 +51,7 @@ public class TodoUtil {
 			n++;
 			if (num == n) {
 				System.out.println(n + ". [" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - " + item.getDue_date() + " - " + item.getCurrent_date());
-				System.out.print("위 항목을 삭제하시겠습니까? (y/n)");
+				System.out.print("위 항목을 삭제하시겠습니까? (y/n) ");
 				char answer = sc.next().charAt(0);
 				if(answer == 'y') {
 					l.deleteItem(item);
@@ -103,6 +103,27 @@ public class TodoUtil {
 			}
 		}
 
+	}
+	
+	public static void find(TodoList l, String s) {
+		int n = 0,count = 0;
+		String tit, des;
+		
+		for (TodoItem item : l.getList()) {
+			n++;
+			tit = item.getTitle();
+			des = item.getDesc();
+			if(tit.contains(s) || des.contains(s)) {
+				count++;
+				System.out.print(n + ". ");
+				System.out.println("[" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - (" + item.getDue_date() + ") - " + item.getCurrent_date());
+			}	
+		}
+		if(count == 0)
+			System.out.println("해당 검색어를 포함한 항목이 없습니다");
+		else
+			System.out.println("총 " + count + "개의 항목을 찾았습니다");
+				
 	}
 
 	public static void listAll(TodoList l) {
