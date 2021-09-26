@@ -70,6 +70,11 @@ public class TodoMain {
 				TodoUtil.find(l, s);
 				break;
 				
+			case "find_cate":
+				String str = sc.next();
+				TodoUtil.find_cate(l, str);
+				break;
+				
 			case "help":
 				Menu.displaymenu();
 				break;

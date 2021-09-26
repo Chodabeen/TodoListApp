@@ -14,6 +14,7 @@ public class Menu {
         System.out.println("ls_date - 날짜순 정렬");
         System.out.println("ls_date_desc - 날짜역순 정렬");
         System.out.println("find <검색어> - 항목 검색");
+        System.out.println("find_cate <검색어> - 항목 검색");
         System.out.println("exit - 종료");
     }
     

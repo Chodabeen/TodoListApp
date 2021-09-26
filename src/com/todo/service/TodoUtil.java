@@ -122,6 +122,25 @@ public class TodoUtil {
 			System.out.println("총 " + count + "개의 항목을 찾았습니다");
 				
 	}
+	
+	public static void find_cate(TodoList l, String str) {
+		int num,count = 0;
+		String cate;
+		
+		for (TodoItem item : l.getList()) {
+			num = l.indexOf(item) + 1;
+			cate = item.getCategory();
+			if(cate.contains(str)) {
+				count++;
+				System.out.print(num + ". ");
+				System.out.println("[" + item.getCategory() + "] - " +item.getTitle() + " - " + item.getDesc() + " - (" + item.getDue_date() + ") - " + item.getCurrent_date());
+			}	
+		}
+		if(count == 0)
+			System.out.println("해당 검색어를 포함한 항목이 없습니다");
+		else
+			System.out.println("총 " + count + "개의 항목을 찾았습니다");
+	}
 
 	public static void listAll(TodoList l) {
 		int num = 0;
