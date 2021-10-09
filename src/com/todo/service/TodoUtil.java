@@ -141,6 +141,23 @@ public class TodoUtil {
 		else
 			System.out.println("총 " + count + "개의 항목을 찾았습니다");
 	}
+	
+	public static void listCateAll(TodoList l) {
+		Set<String> clist = new HashSet<String>();
+		
+		for(TodoItem c : l.getList()) {
+			clist.add(c.getCategory());
+		}
+		
+		Iterator it = clist.iterator();
+		while(it.hasNext()) {
+			String s = (String)it.next();
+			System.out.print(s);
+			if(it.hasNext()) 
+				System.out.print(" / ");
+		}
+		System.out.printf("\n총 %d개의 카테고리가 등록되어 있습니다.\n", clist.size());
+	}
 
 	public static void listAll(TodoList l) {
 		int num = 0;

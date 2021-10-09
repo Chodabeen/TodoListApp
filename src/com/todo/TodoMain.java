@@ -66,14 +66,19 @@ public class TodoMain {
 				break;
 				
 			case "find":
-				String s = sc.next();
+				String s = sc.nextLine().trim();
 				TodoUtil.find(l, s);
 				break;
 				
 			case "find_cate":
-				String str = sc.next();
+				String str = sc.nextLine().trim();
 				TodoUtil.find_cate(l, str);
 				break;
+				
+			case "ls_cate":
+				TodoUtil.listCateAll(l);
+				break;
+				
 				
 			case "help":
 				Menu.displaymenu();
